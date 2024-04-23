@@ -1,0 +1,140 @@
+<mat-card style="max-height: 600px; overflow-y: scroll;">
+    <mat-card-content >
+        <div class="row">
+        <mat-card style="max-width: 50%; ">
+                <mat-card-content style="background-color: #6e1c91e0;">
+                    
+                    <div class="example-label-row">
+                        <div style="max-width: 300; ">
+                          
+                            <h2 style="color: aliceblue;">References</h2>
+                            <form class="example-form">
+                                    <div class="row">
+                                    
+                                        <mat-form-field class="example-full-width" style="max-width:300px;" ><mat-label>Post Order Number</mat-label>
+                                            <input matInput placeholder="Ex. 0000000009" >
+                                        </mat-form-field>
+                                    
+                                        <mat-form-field class="example-full-width"  style="max-width:200px;" ><mat-label>Date</mat-label>
+                                            <input matInput placeholder="Date" >
+                                        </mat-form-field>
+                                        
+                                    </div>
+        
+                                    <div class="row">
+                                    
+                                        <mat-form-field class="example-full-width" style="width: 300px;" ><mat-label>Invetory / DR no.</mat-label>
+                                            <input matInput placeholder="Ex. RAM" >
+                                        </mat-form-field>
+                                    
+                                        <mat-form-field class="example-full-width"  style="max-width:200px;" ><mat-label>Date</mat-label>
+                                            <input matInput placeholder="Date" >
+                                        </mat-form-field>
+                                        
+                                    </div>
+                                     
+                                    <h2 style="color: aliceblue;">Supplier Details</h2>
+                                    <div class="row">
+                                    
+                                        <mat-form-field class="example-full-width" style="width: 300px;" ><mat-label>Supplier no.</mat-label>
+                                            <input matInput placeholder="Ex. RAM" >
+                                        </mat-form-field>
+                                    
+                                        <mat-form-field class="example-full-width"  style="max-width:200px;" ><mat-label>Pruchase Date</mat-label>
+                                            <input matInput placeholder="Date" >
+                                        </mat-form-field>
+                                        
+                                    
+                                    </div>
+        
+        
+                                    <div class="row">
+                                    
+                                        <mat-form-field class="example-full-width"  ><mat-label>Supplier Name</mat-label>
+                                            <input matInput placeholder="Ex. RAM" >
+                                        </mat-form-field>
+                                    </div>
+        
+        
+                                    <div class="row card-container  ">
+                                    
+                                        <mat-form-field>
+                                            <mat-label>Request Description</mat-label>
+                                            <textarea matInput></textarea>
+                                        </mat-form-field>
+        
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <mat-form-field class="example-full-width" style="width: 300px;"><mat-label>VAT No.</mat-label>
+                                            <input matInput>
+                                        </mat-form-field>
+        
+                                        <mat-form-field class="example-full-width" style="width: 100px;"><mat-label>Term</mat-label>
+                                            <input matInput>
+                                        </mat-form-field>
+                                        
+                                    </div>
+                                
+                            </form>
+
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        <mat-card style="max-width: 50%; ">
+                <mat-card-content style="background-color: #47a376;">
+                    
+                    <div class="example-button-row " >
+                        <div style="max-width: 300;">
+
+                            <mat-form-field style="padding: 10px; ">
+                                <mat-label>RR Number</mat-label><input matInput>
+                            </mat-form-field>
+
+                            <mat-form-field style="padding: 10px; ">
+                                <mat-label>RR Date</mat-label><input matInput>
+                            </mat-form-field>
+
+                            <mat-form-field style="padding: 10px; ">
+                                <mat-label>PO Number</mat-label><input matInput>
+                            </mat-form-field>
+
+                            <mat-form-field style="padding: 10px; ">
+                                <mat-label>RR Status</mat-label><input matInput>
+                            </mat-form-field>
+
+
+                            <mat-form-field style="padding: 10px; ">
+                                <mat-label>DNO</mat-label><input matInput>
+                            </mat-form-field>
+
+                            <mat-form-field style="padding: 10px; "> 
+                                <mat-label> UM </mat-label><input matInput>
+                            </mat-form-field>
+
+                            <mat-form-field style="padding: 10px; ">
+                                <mat-label>Ordered</mat-label><input matInput>
+                            </mat-form-field>
+
+                            <mat-form-field style="padding: 10px; ">
+                                <mat-label> Recived</mat-label><input matInput>
+                            </mat-form-field>
+
+                            <mat-form-field style="padding: 10px; ">
+                                <mat-label> Recived</mat-label><input matInput>
+                            </mat-form-field>
+
+                            
+                        </div>
+                    </div>
+                </mat-card-content>
+
+                <br>
+                <button mat-raised-button color="accent" style="max-width: 300px; align-self: center;" (click)="rrBalance()">Item List Balances</button>
+            </mat-card>
+        </div>
+        
+    </mat-card-content>
+</mat-card>
+

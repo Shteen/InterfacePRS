@@ -1,0 +1,9 @@
+.example-label-row {
+    display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+   }
+
+   .example-label-row .mat-mdc-label-base {
+    margin: 8px 8px 8px 0;
+  }

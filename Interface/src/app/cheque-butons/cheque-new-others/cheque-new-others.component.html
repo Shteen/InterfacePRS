@@ -1,0 +1,67 @@
+<mat-card style=" max-height: 600px; overflow-y: scroll;">
+    <mat-card-header style=" color: aliceblue; font-size: 20px;">OTHERS</mat-card-header>
+    <hr>
+
+    <mat-card-content  style=" padding-top: 20px;">
+        <div class="row" style="float:right;">
+            <mat-form-field style="max-width: 200px;">
+                <mat-label>CPREPNO</mat-label>
+                <input matInput disabled="true" value="autogen">
+            </mat-form-field>
+            <mat-form-field style="max-width: 200px;">
+                <mat-label>Date</mat-label>
+                <input matInput disabled="true" value="autogen">
+            </mat-form-field>
+        </div>
+    </mat-card-content>
+
+    <mat-card-content style="background-color: #38835e; padding-top: 20px;" >
+        <div class="row">
+
+            <mat-form-field style="max-width: 290px; padding-right: 10px;">
+                <mat-label>Payee</mat-label>
+                <input matInput value="autogen">
+            </mat-form-field>
+
+            <mat-form-field style="max-width: 290px; padding-right: 10px;">
+                <mat-label>Amount</mat-label>
+                <input matInput value="autogen">
+            </mat-form-field>
+           
+            <mat-form-field style="max-width: 290px; padding-right: 10px;">
+                <mat-label>Requested By</mat-label>
+                <input matInput value="autogen">
+            </mat-form-field>
+
+            <mat-form-field style="max-width: 290px; padding-right: 10px;">
+                <mat-label>Department</mat-label>
+                <input matInput value="autogen" disabled="true">
+            </mat-form-field>
+
+            <mat-form-field style="max-width: 600px; ">
+                <mat-label>Payment For</mat-label>
+                <input matInput value="autogen">
+            </mat-form-field>
+        
+            <mat-form-field style="max-width: 600px; ">
+                <mat-label>Remarks</mat-label>
+                <textarea matInput ></textarea>
+            </mat-form-field>
+
+        </div>
+
+        <div class="row">
+            <mat-form-field style="max-width: 600px;">
+                <mat-label>Supplier Name</mat-label>
+                <input matInput value="autogen">
+            </mat-form-field>
+        </div>
+    </mat-card-content>
+
+    <mat-card-content>
+        <div class="example-button-row" mat-form-field style="max-width: 600px; ">
+            <button mat-raised-button color="accent">Save</button>
+            <button mat-raised-button color="accent" mat-dialog-close>Close</button>
+        </div>
+    </mat-card-content>
+</mat-card>

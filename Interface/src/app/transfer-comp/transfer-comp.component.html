@@ -1,0 +1,58 @@
+<hr>
+<h1>Transfer Slip</h1>
+<hr>
+<br>
+
+
+  <div class="example-button-row">
+    <button mat-stroked-button color="accent" style="padding-right: 10px;" (click)="newTs()">Add New Transfer Slip</button>
+    <button mat-stroked-button color="accent" style="padding-right: 10px;" (click)="canTs()">Cancel Transfer Slip</button>
+    <button mat-stroked-button color="accent" style="padding-right: 10px;" (click)="posTs()">Post Transfer Slip</button>
+    <button mat-stroked-button color="accent" style="padding-right: 10px;" (click)="prinTs()">Print Transfer Slip</button>
+    </div>
+<br><br>
+
+<div>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+        <!-- Position Column -->
+        <ng-container matColumnDef="rb">
+          <th mat-header-cell *matHeaderCellDef>Reciving Branch</th>
+          <td mat-cell *matCellDef="let element">{{element.rb}}</td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="docno">
+          <th mat-header-cell *matHeaderCellDef>Document Number</th>
+          <td mat-cell *matCellDef="let element">{{element.docno}}</td>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef>Status</th>
+          <td mat-cell *matCellDef="let element">{{element.status}}</td>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="details">
+          <th mat-header-cell *matHeaderCellDef>TS Details</th>
+          <td mat-cell *matCellDef="let element">{{element.details}}
+          <button mat-mini-fab color="accent" (click)="detTs()"><mat-icon>pageview</mat-icon>
+          </button></td>
+        </ng-container>
+
+        <ng-container matColumnDef="select">
+          <th mat-header-cell *matHeaderCellDef>select</th>
+          <td mat-cell *matCellDef="let element">{{element.select}}
+              <mat-radio-button value="1"></mat-radio-button>
+          </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      
+      
+      
+      
+</div>

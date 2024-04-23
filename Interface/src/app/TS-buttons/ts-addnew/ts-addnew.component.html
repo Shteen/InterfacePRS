@@ -1,0 +1,281 @@
+<mat-card style=" background-color: #7b1fa2;">
+  <mat-card-content>
+
+    <mat-stepper [linear]="isLinear" #stepper>
+      <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup">
+          <ng-template matStepLabel>Select Branches</ng-template>
+
+
+          <div class="row">
+
+            <mat-form-field style="width: 450px;">
+              <mat-label>Select Sending Branch </mat-label>
+              <mat-select>
+                <mat-option value="one">First option</mat-option>
+                <mat-option value="two">Second option</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field style="width: 450px;">
+              <mat-label>Select Reciving Branch</mat-label>
+              <mat-select>
+                <mat-option value="one">First option</mat-option>
+                <mat-option value="two">Second option</mat-option>
+              </mat-select>
+            </mat-form-field>
+            
+          </div>
+          <div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+
+        </form>
+      </mat-step>
+
+
+      <mat-step [stepControl]="secondFormGroup" label="Select Items for Transfer">
+        <form [formGroup]="secondFormGroup">
+
+
+          <div class="example-button-row" >
+
+            
+            <button mat-button [matMenuTriggerFor]="menu" mat-stroked-button color="accent">Add Item</button>
+            <mat-menu #menu="matMenu">
+              <mat-option value="one"><button mat-stroked-button color="accent" (click)="addItem()">Add Item From Inventory</button></mat-option>
+              <mat-option value="two"><button mat-stroked-button color="accent" (click)="addItemRep()">Add Item From Inventory</button></mat-option>
+            </mat-menu>
+           
+              <button mat-stroked-button color="accent" style="padding-right: 10px;" (click)="delItem()">Delete Item</button>
+              
+          </div>
+
+          <div>
+            <mat-card style=" margin: 10px 10px 10px 10px;padding: 10px;">
+              <mat-card-content style="max-height: 250px; overflow-y: scroll;">
+
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8"  style="max-height: 350; overflow-y: scroll;">
+
+              <!--- Note that these columns can be defined in any order.
+                    The actual rendered columns are set as a property on the row definition" -->
+            
+              <!-- Position Column -->
+              <ng-container matColumnDef="propNo">
+                <th mat-header-cell *matHeaderCellDef style="position: -webkit-sticky; top: 0px;" > Property / ID No. </th>
+                <td mat-cell *matCellDef="let element"> {{element.propNo}} </td>
+              </ng-container>
+            
+              <!-- Name Column -->
+              <ng-container matColumnDef="iDes">
+                <th mat-header-cell *matHeaderCellDef style="position: -webkit-sticky; top: 0px;" > Item Description </th>
+                <td mat-cell *matCellDef="let element"> {{element.iDes}} </td>
+              </ng-container>
+            
+              <!-- Weight Column -->
+              <ng-container matColumnDef="brand">
+                <th mat-header-cell *matHeaderCellDef style="position: -webkit-sticky; top: 0px;" > Brand </th>
+                <td mat-cell *matCellDef="let element"> {{element.brand}} </td>
+              </ng-container>
+            
+              <!-- Symbol Column -->
+              <ng-container matColumnDef="serialNo">
+                <th mat-header-cell *matHeaderCellDef style="position: -webkit-sticky; top: 0px;" > Serial No. </th>
+                <td mat-cell *matCellDef="let element"> {{element.serialNo}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="nOfItems">
+                  <th mat-header-cell *matHeaderCellDef style="position: -webkit-sticky; top: 0px;" > Number of Items </th>
+                  <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="um">
+                  <th mat-header-cell *matHeaderCellDef style="position: -webkit-sticky; top: 0px;" > UM </th>
+                  <td mat-cell *matCellDef="let element"> {{element.um}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="cases">
+                  <th mat-header-cell *matHeaderCellDef style="position: -webkit-sticky; top: 0px;" > Cases </th>
+                  <td mat-cell *matCellDef="let element"> {{element.cases}} </td>
+                </ng-container>   
+
+                <ng-container matColumnDef="sel">
+                  <th mat-header-cell *matHeaderCellDef style="position: -webkit-sticky; top: 0px;" > Select </th>
+                  <td mat-cell *matCellDef="let element"> {{element.sel}} 
+                    <mat-radio-button value="2"></mat-radio-button></td>
+                </ng-container>   
+            
+              <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+              </mat-card-content>
+            </mat-card>
+
+          </div>
+
+
+          <div>
+
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+            
+          </div>
+        </form>
+      </mat-step>
+      <mat-step>
+
+        <ng-template matStepLabel>Review</ng-template>
+       
+              <div class="row">
+             
+             
+                  <mat-card style="max-width: 27%; margin: 10px 10px 10px 10px; padding: 10px;">
+      
+                      <mat-card-content>
+                          
+                          <mat-form-field style="width: 230px;">
+                            <mat-label>Sending Branch</mat-label>
+                            <input matInput value="Cabuyao">
+                            </mat-form-field>
+      
+                            <mat-form-field style="width: 230px;">
+                              <mat-label>Recivng Branch</mat-label>
+                              <input matInput value="Head Office">
+                            </mat-form-field>
+      
+      
+                            <mat-form-field style="width: 230px;">
+                              <mat-label>Note</mat-label>
+                              <textarea matInput></textarea>
+                            </mat-form-field>
+      
+      
+                            <mat-form-field style="max-width: 230px;">
+                              <mat-label>DocType</mat-label>
+                              <input matInput value="TS">
+                            </mat-form-field>
+      
+                            <div>
+                              <button mat-button matStepperPrevious>Back</button>
+                              <button mat-button (click)="stepper.reset()">Reset</button>
+                              <button mat-button >Save</button>
+                            </div>
+      
+      
+                            
+                      </mat-card-content>
+             
+                  </mat-card>
+             
+             <br>
+      
+                  <mat-card style="max-width: 67%; margin: 10px 10px 10px 10px;padding: 10px;">
+                      <mat-card-content>
+      
+      
+                        <form [formGroup]="secondFormGroup">
+                
+                          <div>
+                            <mat-card style=" margin: 10px 10px 10px 10px;padding: 10px;">
+                              <mat-card-content style="max-height: 250px; overflow-y: scroll;">
+                
+                            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8"  style="max-height: 350; overflow-y: scroll;">
+                
+                              <!--- Note that these columns can be defined in any order.
+                                    The actual rendered columns are set as a property on the row definition" -->
+                            
+                              <!-- Position Column -->
+                              <ng-container matColumnDef="propNo">
+                                <th mat-header-cell *matHeaderCellDef style="position: -webkit-sticky; top: 0px;" > Property / ID No. </th>
+                                <td mat-cell *matCellDef="let element"> {{element.propNo}} </td>
+                              </ng-container>
+                            
+                              <!-- Name Column -->
+                              <ng-container matColumnDef="iDes">
+                                <th mat-header-cell *matHeaderCellDef style="position: -webkit-sticky; top: 0px;" > Item Description </th>
+                                <td mat-cell *matCellDef="let element"> {{element.iDes}} </td>
+                              </ng-container>
+                            
+                              <!-- Weight Column -->
+                              <ng-container matColumnDef="brand">
+                                <th mat-header-cell *matHeaderCellDef style="position: -webkit-sticky; top: 0px;" > Brand </th>
+                                <td mat-cell *matCellDef="let element"> {{element.brand}} </td>
+                              </ng-container>
+                            
+                              <!-- Symbol Column -->
+                              <ng-container matColumnDef="serialNo">
+                                <th mat-header-cell *matHeaderCellDef style="position: -webkit-sticky; top: 0px;" > Serial No. </th>
+                                <td mat-cell *matCellDef="let element"> {{element.serialNo}} </td>
+                              </ng-container>
+                
+                              <ng-container matColumnDef="nOfItems">
+                                  <th mat-header-cell *matHeaderCellDef style="position: -webkit-sticky; top: 0px;" > Number of Items </th>
+                                  <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                                </ng-container>
+                
+                                <ng-container matColumnDef="um">
+                                  <th mat-header-cell *matHeaderCellDef style="position: -webkit-sticky; top: 0px;" > UM </th>
+                                  <td mat-cell *matCellDef="let element"> {{element.um}} </td>
+                                </ng-container>
+                
+                                <ng-container matColumnDef="cases">
+                                  <th mat-header-cell *matHeaderCellDef style="position: -webkit-sticky; top: 0px;" > Cases </th>
+                                  <td mat-cell *matCellDef="let element"> {{element.cases}} </td>
+                                </ng-container>   
+                
+                                <ng-container matColumnDef="sel">
+                                  <th mat-header-cell *matHeaderCellDef style="position: -webkit-sticky; top: 0px;" > Select </th>
+                                  <td mat-cell *matCellDef="let element"> {{element.sel}} 
+                                    <mat-radio-button value="2"></mat-radio-button></td>
+                                </ng-container>   
+                            
+                              <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                            </table>
+                
+                              </mat-card-content>
+                            </mat-card>
+                
+                          </div>
+                
+                        </form>
+                            
+      
+                      </mat-card-content>
+                      <br>
+                      <mat-card-content>
+      
+                          <div class="row">
+                              
+        
+                              <mat-form-field style="max-width: 200px;  margin: 10px 10px 10px 10px;">
+                                  <mat-label>DocNo</mat-label>
+                                  <input matInput>
+                                </mat-form-field>
+      
+                            
+                                <mat-form-field style="max-width: 200px;  margin: 10px 10px 10px 10px;">
+                                  <mat-label>Choose a date</mat-label>
+                                  <input matInput [matDatepicker]="picker">
+                                  <mat-hint style="color: aliceblue;">MM/DD/YYYY</mat-hint>
+                                  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                                  <mat-datepicker #picker></mat-datepicker>
+                                </mat-form-field>
+                                <button mat-raised-button color="accent" style="max-width: 200px; align-self: center;" mat-dialog-close>Save</button>
+                          </div>
+      
+                      </mat-card-content>
+             
+                  </mat-card>
+      
+              </div>
+
+      </mat-step>
+    </mat-stepper>
+
+
+  </mat-card-content>
+
+
+</mat-card>
+

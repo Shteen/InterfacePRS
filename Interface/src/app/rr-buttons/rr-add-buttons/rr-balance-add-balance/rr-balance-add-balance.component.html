@@ -1,0 +1,57 @@
+<mat-card>
+    <mat-card-header style="padding: 10px; font-size: 40px; color: aliceblue;">Generated Balance</mat-card-header>
+
+
+    <mat-card-content>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+          
+            <!-- Position Column -->
+            <ng-container matColumnDef="dno">
+              <th mat-header-cell *matHeaderCellDef> DNO </th>
+              <td mat-cell *matCellDef="let element"> {{element.dno}} </td>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="des">
+              <th mat-header-cell *matHeaderCellDef> Description </th>
+              <td mat-cell *matCellDef="let element"> {{element.des}} </td>
+            </ng-container>
+          
+            <!-- Weight Column -->
+            <ng-container matColumnDef="brand">
+              <th mat-header-cell *matHeaderCellDef> Brand </th>
+              <td mat-cell *matCellDef="let element"> {{element.brand}} </td>
+            </ng-container>
+          
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="um">
+              <th mat-header-cell *matHeaderCellDef> UM </th>
+              <td mat-cell *matCellDef="let element"> {{element.um}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="oQty">
+                <th mat-header-cell *matHeaderCellDef> Ordered Quantity </th>
+                <td mat-cell *matCellDef="let element"> {{element.oQty}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="rQty">
+                <th mat-header-cell *matHeaderCellDef> Recived Quantity </th>
+                <td mat-cell *matCellDef="let element"> {{element.rQty}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="bQty">
+                <th mat-header-cell *matHeaderCellDef> Balance Quantity </th>
+                <td mat-cell *matCellDef="let element"> {{element.bQty}} </td>
+              </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky:true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+          
+          
+
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,50 @@
+<mat-card> 
+    <mat-card-content>
+        <mat-card>
+            <mat-card-content>
+
+
+                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                    <!--- Note that these columns can be defined in any order.
+                        The actual rendered columns are set as a property on the row definition" -->
+                
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="code">
+                    <th mat-header-cell *matHeaderCellDef> code </th>
+                    <td mat-cell *matCellDef="let element"> {{element.code}} </td>
+                    </ng-container>
+                
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef> Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                    </ng-container>
+                
+                    <!-- Weight Column -->
+                    <ng-container matColumnDef="dess">
+                    <th mat-header-cell *matHeaderCellDef> Description </th>
+                    <td mat-cell *matCellDef="let element"> {{element.dess}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="sel">
+                        <th mat-header-cell *matHeaderCellDef> Select </th>
+                        <td mat-cell *matCellDef="let element"> {{element.sel}} 
+                            <mat-radio-button value="1"></mat-radio-button></td>
+                        </ng-container>
+                
+                
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+                
+            </mat-card-content>
+        </mat-card>
+        <mat-card>
+            <div class="example-button-row ">
+                <button mat-raised-button color="accent">Select</button>
+                <button mat-raised-button color="accent" mat-dialog-close >Cancel</button>
+            </div>
+        </mat-card>
+    </mat-card-content>
+</mat-card>

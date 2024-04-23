@@ -1,0 +1,28 @@
+.butGroup {
+    margin: 8px 8px 8px 0;
+  }
+
+  .example-button-row {
+    padding:  10 px;
+   
+   }
+
+   .example-button-row .mat-mdc-button-base {
+    margin: 8px 8px 8px 8px;
+  }
+  .row {
+    display: flex; /* Use flexbox */
+    align-items: center; /* Align items vertically */
+  }
+  
+  /* If you want space between elements */
+  .row button {
+    margin-left: 10px;
+  }
+
+  .button {
+    margin-right: 1vw;
+    font-size: 20px;
+    height: auto;
+    width: auto;
+}

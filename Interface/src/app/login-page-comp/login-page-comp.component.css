@@ -1,0 +1,18 @@
+
+.card-ng{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo img{
+    width:100%;
+    height: 100px;
+}
+
+.example-button-row {
+    padding:  10 px;
+   }
+   
+   .example-button-row .mat-mdc-button-base {
+     margin: 8px 8px 20px 0;
+   }

@@ -1,0 +1,212 @@
+
+
+<div class="card-container">
+    <mat-card style="overflow-y: scroll; overflow-x: scroll;">
+        <mat-card-content>
+            <h1 style="color: aliceblue;">Canvas Information</h1>
+           
+            
+
+            <form [formGroup]="canvasDetails" (ngSubmit)="onFormSubmit()" >
+
+                
+                <div class="row">
+                   
+                    <mat-form-field class="example-full-width" style="max-width: 450px;" ><mat-label>Canvas Number</mat-label>
+                        <input matInput placeholder="Ex. 0000000009" formControlName="cvsno" >
+                    </mat-form-field>
+                
+                    <mat-form-field class="example-full-width" style="max-width:  200px;"><mat-label>Date</mat-label>
+                        <input matInput placeholder="Date" formControlName="dateOrder">
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                    </mat-form-field>
+                    
+                    <mat-form-field class="example-full-width" style="max-width: 450px;" ><mat-label>Factory</mat-label>
+                        <input matInput formControlName="factory" >
+                    </mat-form-field>
+                    
+                </div>
+            
+                <div class="row">
+                   
+                    <mat-form-field class="example-full-width" style="width: 400px;" ><mat-label>Company</mat-label>
+                        <input matInput placeholder="Ex. RAM" formControlName="company">
+                    </mat-form-field>
+                
+                    <mat-form-field class="example-full-width" style="max-width:  300px;"><mat-label>Department</mat-label>
+                        <input matInput placeholder="Ex. IT" formControlName="department">
+                    </mat-form-field>
+                    
+                </div>
+            
+                <div class="row">
+                   
+                    <mat-form-field class="example-full-width" style="width: 450px;"><mat-label>Request Description</mat-label>
+                        <input matInput formControlName="reqDescript">
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width" style="width: 200px;" ><mat-label>Request by</mat-label>
+                        <input matInput placeholder="Ex. Jhon" formControlName="reqDescript">
+                    </mat-form-field>
+                
+                    <mat-form-field class="example-full-width" style="width: 200px; "><mat-label>Type</mat-label>
+                        <input matInput placeholder="Ex. Non-Trade" formControlName="reqDescript">
+                    </mat-form-field>
+                    
+                    <section class="example-section" style="width: 100px;">
+                        <mat-checkbox class="example-margin" formControlName="ppe">PPE</mat-checkbox>
+                      </section>
+                </div>
+            
+                
+                <div class="row">
+                   
+                    <mat-form-field class="example-full-width" style="width: 500px;" ><mat-label>Remarks</mat-label>
+                        <input matInput formControlName="remarks">
+                    </mat-form-field>
+
+                    <mat-radio-group aria-label="Select an option"  style="width: 500px;" formControlName="ei">
+                        <mat-radio-button value="inventory">Inventoriable</mat-radio-button>
+                        <mat-radio-button value="expense">Expense</mat-radio-button>
+                      </mat-radio-group>
+                    
+                
+                </div>
+                
+            
+</form>
+
+                <hr style="color: aliceblue;">
+                <hr style="color: aliceblue;">
+                
+
+                
+                
+          <div class="row">
+                <mat-card id="cards" style="max-width: 350px;">
+
+
+                    <mat-card-header>
+                        <h1 style="color: aliceblue; max-width: 200px;">Supplier Information</h1>
+                        <div class="example-button-row" >
+                            <button mat-raised-button color="accent" (click)="suppList()" style="max-width: 350px;">Add Supplier</button>
+                        </div>
+                    </mat-card-header>
+
+                   
+
+                    <form [formGroup]="suppDetails" >
+                    <mat-form-field appearance="outline" style="width: 320px;">
+                        <mat-label>Supplier Name</mat-label>
+                            <input  matInput placeholder="Supplier 1" formControlName="supplierName" >
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" style="width: 320px;">
+                        <mat-label>Supplier No.</mat-label>
+                            <input matInput placeholder="Supplier No.1" formControlName="supno">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" style="width: 320px;">
+                        <mat-label>Telephone No.</mat-label>
+                            <input matInput placeholder="Telephone No.1"  formControlName="number1">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" style="width: 320px;"  formControlName="keyperson">
+                        <mat-label>Contact Person</mat-label>
+                            <input matInput placeholder="Contact Person 1">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" style="width: 320px;"  >
+                        <mat-label>Payment Terms</mat-label>
+                            <input matInput placeholder="Payment Terms1" id="SuppGroup1" formControlName="terms">
+                    </mat-form-field>
+                    </form>
+
+
+
+                </mat-card>
+
+                <mat-card style=" max-width: 700px;">
+                    
+
+                   
+               
+                    <mat-card-header>
+                        <h2 style="color: aliceblue; max-width: 300px; font-size:xx-large;">Item Info  &nbsp;&nbsp;&nbsp;&nbsp;</h2>
+                    <div class="example-button-row">
+                     <button mat-raised-button color="accent" (click)="openAddItem()">Add</button>
+                     <button mat-raised-button color="warn"   (click)="openDelItem()">Delete</button>
+                     <button mat-raised-button color="warn"   (click)="testBut()">TEST</button>
+                    </div>
+                    </mat-card-header>
+                    <br><br>
+                    <form  [formGroup]="canvasDetails">
+                        <div class="container">
+                            <div class="row">
+                              <div class="col">
+                                <mat-form-field appearance="outline" style="width: 200px;">
+                                    <mat-label>DNO</mat-label>
+                                    <input  matInput formControlName="dnonumber">
+                                </mat-form-field>
+                              </div>
+                              <div class="col">
+                                <mat-form-field appearance="outline" style="width: 200px;">
+                                    <mat-label>Description</mat-label>
+                                    <input matInput formControlName="descriptionItem">
+                                </mat-form-field>
+                              </div>
+                              <div class="col">
+                                <mat-form-field appearance="outline" style="width: 200px;">
+                                    <mat-label>Brand</mat-label>
+                                    <input matInput formControlName="brandName">
+                                </mat-form-field>
+                              </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                              <div class="col">
+                                <mat-form-field appearance="outline" style="width: 200px;">
+                                    <mat-label>Unit Measure</mat-label>
+                                    <input matInput formControlName="umpc">
+                                </mat-form-field>
+                              </div>
+                              <div class="col">
+                                <mat-form-field appearance="outline" style="width: 200px;">
+                                    <mat-label>Cost Per Piece</mat-label>
+                                    <input matInput formControlName="costPC">
+                                </mat-form-field>
+                              </div>
+                              <div class="col">
+                                <mat-form-field appearance="outline" style="width: 200px;">
+                                    <mat-label>Tax</mat-label>
+                                    <input matInput formControlName="taxrate">
+                                </mat-form-field>
+                              </div>
+                            </div>
+                            <br>
+                            <div class="row" style="align-items: center;">
+                                <div style="width: 200px; padding-left: 120px;">
+                                    <mat-form-field appearance="outline" style="width: 200px;">
+                                        <mat-label>Quantity</mat-label>
+                                        <input matInput formControlName="qty">
+                                    </mat-form-field>
+                                </div>
+                                <div style="width: 200px; padding-left: 150px;">
+                                    <mat-form-field appearance="outline" style="width: 200px;">
+                                        <mat-label>Total</mat-label>
+                                        <input matInput formControlName="total">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                    </form>    
+                    <br>
+                    <div class="example-button-row">
+                        <button mat-raised-button type="button" color="warn" (click)="clearCanv()">Cancel</button>
+                        <button mat-raised-button type="submit" color="accent">{{data ? 'Update' : 'Save'}}</button>
+                    </div>
+                </mat-card>
+
+                
+                
+
+</div>

@@ -1,0 +1,83 @@
+<mat-card>
+    <mat-card-header style="color: aliceblue; font-size: 20px;">PENDING PO</mat-card-header>
+  
+    <mat-card-content>
+        <div class="example-button-row">
+            <button mat-raised-button color="accent" (click)="cann()">Cancel</button>
+            <button mat-raised-button color="accent" mat-dialog-close>Close</button>
+            <button mat-raised-button color="accent" (click)="prin()">Print</button>
+            <button mat-raised-button color="accent" (click)="prev()">Preview</button>
+        </div>
+    </mat-card-content>
+   
+    <mat-card-content  style=" padding-top: 10px;">
+        <div class="row" style="float:right;">
+            <mat-form-field style="max-width: 200px;">
+                <mat-label>(Trade or Non-Trade)</mat-label>
+                <input matInput disabled="true" value="(Trade or Non-Trade)">
+            </mat-form-field>
+        </div>
+    </mat-card-content>
+
+    <mat-card-content>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            
+            <ng-container matColumnDef="pono">
+              <th mat-header-cell *matHeaderCellDef> PONO </th>
+              <td mat-cell *matCellDef="let element"> {{element.pono}} </td>
+            </ng-container>
+          
+            
+            <ng-container matColumnDef="podate">
+              <th mat-header-cell *matHeaderCellDef> PO DATE </th>
+              <td mat-cell *matCellDef="let element"> {{element.podate}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="cvaNo">
+              <th mat-header-cell *matHeaderCellDef> CANVAS NO </th>
+              <td mat-cell *matCellDef="let element"> {{element.cvaNo}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="Docdate">
+              <th mat-header-cell *matHeaderCellDef> Document Date </th>
+              <td mat-cell *matCellDef="let element"> {{element.Docdate}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="supNO">
+              <th mat-header-cell *matHeaderCellDef> Supplier Number </th>
+              <td mat-cell *matCellDef="let element"> {{element.supNO}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="supName">
+              <th mat-header-cell *matHeaderCellDef> Supplier Name</th>
+              <td mat-cell *matCellDef="let element"> {{element.supName}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="remarks">
+              <th mat-header-cell *matHeaderCellDef> remarks</th>
+              <td mat-cell *matCellDef="let element"> {{element.remarks}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="radio">
+              <th mat-header-cell *matHeaderCellDef> Select </th>
+              <td mat-cell *matCellDef="let element"> {{element.radio}} </td>
+              <mat-radio-button value="1">Option 1</mat-radio-button>
+            </ng-container>
+
+            <ng-container matColumnDef="sel">
+              <th mat-header-cell *matHeaderCellDef> Details</th>
+              <td mat-cell *matCellDef="let element"> {{element.sel}} </td>
+              <button  mat-mini-fab color="accent" (click)="poView()">
+                <mat-icon>pageview</mat-icon>
+              </button>
+            </ng-container>
+          
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+          
+          
+    </mat-card-content>
+
+</mat-card>

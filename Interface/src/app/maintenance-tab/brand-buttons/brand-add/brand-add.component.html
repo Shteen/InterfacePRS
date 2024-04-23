@@ -1,0 +1,22 @@
+<mat-card>
+    <form [formGroup]="brand" (ngSubmit)="onFormSubmit()">
+    <div class="example-button-row">
+        <button mat-raised-button color="accent" type="submit" >{{data ? 'Update' : 'Save'}}</button>
+        <button mat-raised-button color="accent"  [mat-dialog-close]="false" >Cancel</button>
+    </div>
+    <br>
+    
+    <div style="padding-left: 8px;">
+        <mat-form-field >
+            <mat-label>Brand Number</mat-label>
+            <input matInput formControlName="brandNumber">
+        </mat-form-field>
+    </div>
+    <div style="padding-left: 8px; max-width: fit-content;"> 
+        <mat-form-field >
+            <mat-label>Brand Name</mat-label>
+            <input matInput formControlName="brandName">
+        </mat-form-field>
+    </div>
+    </form>
+</mat-card>

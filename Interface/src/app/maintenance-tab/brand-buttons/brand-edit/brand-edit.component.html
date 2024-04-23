@@ -1,0 +1,20 @@
+<mat-card>
+    <div class="example-button-row">
+        <button mat-raised-button color="accent" (click)="save()">Save</button>
+        <button mat-raised-button color="accent"  mat-dialog-close >Cancel</button>
+    </div>
+<br>
+    <div style="padding-left: 8px;">
+        <mat-form-field >
+            <mat-label>autogen num</mat-label>
+            <input matInput disabled="true" placeholder="autogen SEP">
+        </mat-form-field>
+    </div>
+    <div style="padding-left: 8px; max-width: fit-content;"> 
+        <mat-form-field >
+            <mat-label>Description</mat-label>
+            <input matInput>
+        </mat-form-field>
+    </div>
+
+</mat-card>

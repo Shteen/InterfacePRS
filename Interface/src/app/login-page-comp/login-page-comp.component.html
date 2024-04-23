@@ -1,0 +1,43 @@
+<div class="card-ng">
+
+<mat-card  style="height: fit-content; width: fit-content;  ">
+    <mat-card-header style="align-self: center;">
+        <div class="logo">
+            <img class="img-responsive" src="..\assets\ram-logo.jpg"  alt=""/>
+        </div>
+    </mat-card-header>
+<br>
+    <mat-card-header style="align-self: center; font-size: larger;">
+        Sign in to your Account
+    </mat-card-header>
+<br>
+<form [formGroup]="loginform" (ngSubmit)="login()">
+    <mat-card-content style="align-self: center;">
+        
+        <div class="Email">
+            <mat-form-field  style="width: 300px">
+              <mat-label >Employee Number</mat-label>
+              <input matInput formControlName="employeeNumber" required>
+    
+            </mat-form-field>
+        </div>
+        <div class="example-container">
+            <mat-form-field style="width: 300px">
+              <mat-label>Enter your password</mat-label>
+              <input class="password" matInput  formControlName="password" [type]="hide ? 'password' : 'text'" >
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+            </mat-form-field>
+        </div>
+
+
+        <div style="float: right;" class="example-button-row">
+            <button mat-raised-button color="primary" style=" width: 100px;" type="submit" >Login</button>
+        </div>
+
+    </mat-card-content>
+</form>
+
+</mat-card>
+</div>

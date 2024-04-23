@@ -1,0 +1,50 @@
+ <mat-sidenav-container class="sidenav-container">
+            <mat-sidenav #sidenav class="sidenav">
+
+                <mat-nav-list>
+                    <a mat-list-item routerLink="dash-comp">Dashboard</a>
+                    <a mat-list-item routerLink="canvas-comp">Canvas</a>
+                    <a mat-list-item routerLink="purchase-comp">Purchase Order(nwp)</a>
+                    <a mat-list-item routerLink="cheque-comp">Cheque Preperation(nwp)</a>
+                    <a mat-list-item routerLink="recive-comp">Reciving Reports</a>
+                    <a mat-list-item routerLink="transfer-comp">Transfer Slip</a>
+                    <a mat-list-item routerLink="history-comp">Purchase Order History</a>
+                    <a mat-list-item routerLink="inventory-comp">Inventory</a>
+                    <mat-accordion>
+                        <mat-expansion-panel hideToggle>
+                          <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                Maintenance &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mat-icon>horizontal_split</mat-icon>
+                            </mat-panel-title>
+                          </mat-expansion-panel-header>
+                          <a mat-list-item routerLink="brand-maintenance">Brand Maintenance</a>
+                          <a mat-list-item routerLink="items-w-maintenance">Item Maintenance</a>
+                          <a mat-list-item routerLink="sep-maintenance">SEP Maintenance</a>
+                          <a mat-list-item routerLink="supplier-w-maintenance">Supplier W Maintenance</a>
+                        </mat-expansion-panel>
+                        <mat-expansion-panel (opened)="panelOpenState = true"
+                                             (closed)="panelOpenState = false">
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                    <a mat-list-item routerLink="/login-page-comp">logintemp</a>
+                  </mat-nav-list>
+                </mat-sidenav>
+        
+            <mat-sidenav-content>
+            <mat-toolbar color="primary">
+                <button mat-icon-button (click)="sidenav.toggle()">
+                <mat-icon>menu</mat-icon>
+                </button>
+                <span style="font-size: 35px; padding: 10px;">Purchase Requesition System</span>
+
+                <button mat-icon-button (click)="logout()">
+                  <mat-icon>logout</mat-icon>
+                </button>
+            </mat-toolbar>
+        
+            <div class="page-content">
+                <router-outlet></router-outlet>
+            </div>
+            </mat-sidenav-content>
+            </mat-sidenav-container>
+     

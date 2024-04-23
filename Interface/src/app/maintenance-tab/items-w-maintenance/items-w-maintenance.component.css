@@ -1,0 +1,39 @@
+  
+  .example-button-row {
+    padding:  10 px;
+   }
+   
+   .example-button-row .mat-mdc-button-base {
+     margin: 8px 8px 8px 8px;
+   }
+ 
+   .mat-column-position {
+    width: 32px;
+    border-right: 1px solid currentColor;
+    padding-right: 24px;
+    text-align: center;
+  }
+ 
+   .card-container {
+     display: flex;
+   }
+
+   .leftSide{
+    height: fit-content;
+    max-height: 800px;
+   }
+
+   .rightSide{
+    padding-left: 20px;
+   }
+ 
+   .example-section {
+     margin: 12px 0;
+   }
+   
+   .example-margin {
+     margin: 0 12px;
+   }
+   
+ 
+ 

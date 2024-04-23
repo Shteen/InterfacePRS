@@ -1,0 +1,59 @@
+<mat-card>
+    <h1 style="padding: 10px; font-size: 40px;">Reciving Report</h1>
+<mat-card-content>
+
+    <div class="example-button-row">
+        <button mat-raised-button color="accent" (click)="rradd()">Add</button>
+        <button mat-raised-button color="accent" (click)="rrEdit()">Edit</button>
+        <button mat-raised-button color="accent" (click)="rrDelete()">Delete</button>
+        <button mat-raised-button color="accent" (click)="rrSubmit()">Submit</button>
+    </div>
+    <mat-card  style="max-height: 440px; overflow-y: scroll;">
+        <mat-card-content>
+            <div>
+                <table mat-table [dataSource]="dataSource"  id="mat-elevation-z8" >
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="rr">
+                    <th mat-header-cell *matHeaderCellDef> RR No# </th>
+                    <td mat-cell *matCellDef="let element"> {{element.rr}} </td>
+                    </ng-container>
+                
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="rrdate">
+                    <th mat-header-cell *matHeaderCellDef> RR Date </th>
+                    <td mat-cell *matCellDef="let element"> {{element.rrdate}} </td>
+                    </ng-container>
+                
+                    <!-- Weight Column -->
+                    <ng-container matColumnDef="pono">
+                    <th mat-header-cell *matHeaderCellDef> PONO </th>
+                    <td mat-cell *matCellDef="let element"> {{element.pono}} </td>
+                    </ng-container>
+                
+                    <!-- Symbol Column -->
+                    <ng-container matColumnDef="rrstatus">
+                    <th mat-header-cell *matHeaderCellDef> RR Status </th>
+                    <td mat-cell *matCellDef="let element"> {{element.rrstatus}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="select">
+                        <th mat-header-cell *matHeaderCellDef> Details </th>
+                        <td mat-cell *matCellDef="let element"> {{element.select}} 
+                            <button mat-icon-button color="accent" (click)="viewDetails()">
+                                <mat-icon>search</mat-icon>
+                            </button>
+                        </td>
+                    </ng-container>
+                
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            </div>
+
+    
+        </mat-card-content>
+    </mat-card>
+</mat-card-content>
+
+
+</mat-card>

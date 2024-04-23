@@ -1,0 +1,17 @@
+.row {
+    display: table-cell;
+    max-width: 600px;
+  }
+  
+
+  table {
+    width: 100%;
+  }
+
+  .example-button-row {
+    padding:  100 px;
+   }
+
+   .example-button-row .mat-mdc-button-base {
+    margin: 8px 8px 8px 0;
+  }

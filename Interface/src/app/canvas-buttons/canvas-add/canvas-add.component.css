@@ -1,0 +1,20 @@
+.example-button-row {
+    padding:  10 px;
+    text-align: right;
+   }
+
+   .example-button-row .mat-mdc-button-base {
+    margin: 8px 8px 8px 8px;
+  }
+
+.cards{
+  max-width: 350px;
+  margin: 8px 8px 8px 8px;
+  padding:  10 px;
+  max-width: 310px;
+  display: flex;
+}
+
+.listItems{
+  position: left;
+}

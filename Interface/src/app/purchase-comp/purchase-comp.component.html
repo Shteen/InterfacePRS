@@ -1,0 +1,254 @@
+<h1>Purchase Order</h1>
+<mat-card>
+  <mat-card-content>
+    <div class="example-button-row">
+
+      <button mat-raised-button color="accent" [matMenuTriggerFor]="menu" >SPECIAL PO</button>
+      <mat-menu #menu="matMenu">
+        <button mat-button color="accent" (click)="noCanvas()" >NO CANVASS PO</button>
+        <button mat-button color="accent" (click)="Replenish()" >REPLENISHMENT PO</button>
+        <button mat-button color="accent" (click)="split()" >SPLIT POST ORDER</button>
+      </mat-menu>
+ <button mat-raised-button color="accent" (click)="Pend()">PENDING PO</button>
+
+  </div>
+  </mat-card-content>
+</mat-card>
+
+    <mat-tab-group>
+        <mat-tab label="Entered"> 
+          <mat-card>
+            <mat-card-content>
+              <table mat-table="1" [dataSource]="dataSourceEnteed" >
+
+                  <ng-container matColumnDef="PON">
+                    <th mat-header-cell *matHeaderCellDef> Post Order Number </th>
+                    <td mat-cell *matCellDef="let element"> {{element.PON}} </td>
+                  </ng-container>
+        
+                  <ng-container matColumnDef="PoDate">
+                    <th mat-header-cell *matHeaderCellDef> Post Order Date </th>
+                    <td mat-cell *matCellDef="let element"> {{element.PoDate}} </td>
+                  </ng-container>
+              
+                  <ng-container matColumnDef="CanvNo">
+                    <th mat-header-cell *matHeaderCellDef> Cavas Number </th>
+                    <td mat-cell *matCellDef="let element"> {{element.CanvNo}} </td>
+                  </ng-container>
+                
+                  <ng-container matColumnDef="Supplier">
+                    <th mat-header-cell *matHeaderCellDef> Supplier </th>
+                    <td mat-cell *matCellDef="let element"> {{element.Supplier}} </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="Status">
+                      <th mat-header-cell *matHeaderCellDef> Status </th>
+                      <td mat-cell *matCellDef="let element"> {{element.Status}} </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="butt">
+                      <th mat-header-cell *matHeaderCellDef> Select </th>
+                      <td mat-cell *matCellDef="let element">{{element.butt}} 
+                        <button  mat-mini-fab color="accent" (click)="poView()">
+                          <mat-icon>pageview</mat-icon>
+                        </button>
+                      </td>
+                  </ng-container>
+                  
+                  <ng-container matColumnDef="sel">
+                    <th mat-header-cell *matHeaderCellDef> Select </th>
+                    <td mat-cell *matCellDef="let element">{{element.sel}} 
+                      <mat-radio-button value="1"></mat-radio-button>
+                    </td>
+                  </ng-container>
+                
+                  <tr mat-header-row *matHeaderRowDef="displayedEntered; sticky:true"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedEntered;"></tr>
+                </table>       
+                
+                <div>
+                  <div class="example-button-row">
+                    <button mat-stroked-button color="accent" (click)="Post()">Post</button>
+                    <button mat-stroked-button color="accent" (click)="Approve()" disabled="true" >Approve</button>
+                    <button mat-stroked-button color="accent" (click)="Cancel()">Cancel</button>
+                    <button mat-stroked-button color="accent" (click)="Print()">Print</button>
+                    <button mat-stroked-button color="accent" (click)="Send()" disabled="true">Send</button>
+                    </div> 
+                </div>
+            </mat-card-content>
+          </mat-card>
+                
+        </mat-tab>
+
+        <mat-tab label="Posted"> 
+            <mat-card>
+                <mat-card-content>
+                    <table mat-table="2" [dataSource]="dataSourcePosted" >           
+                        <ng-container matColumnDef="PON">
+                          <th mat-header-cell *matHeaderCellDef> Post Order Number </th>
+                          <td mat-cell *matCellDef="let element"> {{element.PON}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="PoDate">
+                          <th mat-header-cell *matHeaderCellDef> Post Order Date </th>
+                          <td mat-cell *matCellDef="let element"> {{element.PoDate}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="CanvNo">
+                          <th mat-header-cell *matHeaderCellDef> Cavas Number </th>
+                          <td mat-cell *matCellDef="let element"> {{element.CanvNo}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Supplier">
+                          <th mat-header-cell *matHeaderCellDef> Supplier </th>
+                          <td mat-cell *matCellDef="let element"> {{element.Supplier}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Status">
+                            <th mat-header-cell *matHeaderCellDef> Status </th>
+                            <td mat-cell *matCellDef="let element"> {{element.Status}} </td>
+                          </ng-container>
+                          <ng-container matColumnDef="butt">
+                            <th mat-header-cell *matHeaderCellDef> Edit </th>
+                            <td mat-cell *matCellDef="let element">{{element.butt}} 
+                              <button  mat-mini-fab color="accent" (click)="poView()">
+                                <mat-icon>pageview</mat-icon>
+                              </button>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="sel">
+                          <th mat-header-cell *matHeaderCellDef> Select </th>
+                          <td mat-cell *matCellDef="let element">{{element.sel}} 
+                            <mat-radio-button value="1"></mat-radio-button>
+                          </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedPosted; sticky:true"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedPosted;"></tr>
+                      </table>         
+
+                      <div>
+                          <div class="example-button-row">
+                            <button mat-stroked-button color="accent" (click)="Post()" disabled="true">Post</button>
+                            <button mat-stroked-button color="accent" (click)="Approve()" >Approve</button>
+                            <button mat-stroked-button color="accent" (click)="Cancel()" >Cancel</button>
+                            <button mat-stroked-button color="accent" (click)="Print()" >Print</button>
+                            <button mat-stroked-button color="accent" (click)="Send()" >Send</button>
+                          </div> 
+                      </div>
+                </mat-card-content>
+            </mat-card>
+        </mat-tab>
+        <mat-tab label="Approved"> 
+            <mat-card>
+                <mat-card-content>              
+                    <table mat-table="3" [dataSource]="dataSourceApproved" >
+                        <ng-container matColumnDef="PON">
+                          <th mat-header-cell *matHeaderCellDef> Post Order Number </th>
+                          <td mat-cell *matCellDef="let element"> {{element.PON}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="PoDate">
+                          <th mat-header-cell *matHeaderCellDef> Post Order Date </th>
+                          <td mat-cell *matCellDef="let element"> {{element.PoDate}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="CanvNo">
+                          <th mat-header-cell *matHeaderCellDef> Cavas Number </th>
+                          <td mat-cell *matCellDef="let element"> {{element.CanvNo}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Supplier">
+                          <th mat-header-cell *matHeaderCellDef> Supplier </th>
+                          <td mat-cell *matCellDef="let element"> {{element.Supplier}} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="Status">
+                            <th mat-header-cell *matHeaderCellDef> Status </th>
+                            <td mat-cell *matCellDef="let element"> {{element.Status}} </td>
+                          </ng-container>
+                          <ng-container matColumnDef="butt">
+                            <th mat-header-cell *matHeaderCellDef> Edit </th>
+                            <td mat-cell *matCellDef="let element">{{element.butt}} 
+                              <button  mat-mini-fab color="accent" (click)="poView()">
+                                <mat-icon>pageview</mat-icon>
+                              </button>
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="sel">
+                          <th mat-header-cell *matHeaderCellDef> Select </th>
+                          <td mat-cell *matCellDef="let element">{{element.sel}} 
+                            <mat-radio-button value="1"></mat-radio-button>
+                          </td>
+                        </ng-container>
+
+                        
+                        <tr mat-header-row *matHeaderRowDef="displayedApproved; sticky: true"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedApproved;"></tr>
+                      </table>
+
+                      <div>
+                          <div class="example-button-row">
+                            <button mat-stroked-button color="accent" (click)="Post()" disabled="true">Post</button>
+                            <button mat-stroked-button color="accent" (click)="Approve()" disabled="true">Approve</button>
+                            <button mat-stroked-button color="accent" (click)="Cancel()" >Cancel</button>
+                            <button mat-stroked-button color="accent" (click)="Print()" >Print</button>
+                            <button mat-stroked-button color="accent" (click)="Send()" >Send</button>
+                          </div> 
+                      </div>
+                </mat-card-content>
+            </mat-card>
+        </mat-tab>
+
+        <mat-tab label="Canceled"> 
+          <mat-card>
+            <mat-card-content>
+              <table mat-table="4" [dataSource]="dataSourceCanceled" >
+                  <ng-container matColumnDef="PON">
+                    <th mat-header-cell *matHeaderCellDef> Post Order Number </th>
+                    <td mat-cell *matCellDef="let element"> {{element.PON}} </td>
+                  </ng-container>
+                  <ng-container matColumnDef="PoDate">
+                    <th mat-header-cell *matHeaderCellDef> Post Order Date </th>
+                    <td mat-cell *matCellDef="let element"> {{element.PoDate}} </td>
+                  </ng-container>
+                  <ng-container matColumnDef="CanvNo">
+                    <th mat-header-cell *matHeaderCellDef> Cavas Number </th>
+                    <td mat-cell *matCellDef="let element"> {{element.CanvNo}} </td>
+                  </ng-container>
+                  <ng-container matColumnDef="Supplier">
+                    <th mat-header-cell *matHeaderCellDef> Supplier </th>
+                    <td mat-cell *matCellDef="let element"> {{element.Supplier}} </td>
+                  </ng-container>
+                  <ng-container matColumnDef="Status">
+                      <th mat-header-cell *matHeaderCellDef> Status </th>
+                      <td mat-cell *matCellDef="let element"> {{element.Status}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="butt">
+                      <th mat-header-cell *matHeaderCellDef> Edit </th>
+                      <td mat-cell *matCellDef="let element">{{element.butt}} 
+                        <button  mat-mini-fab color="accent" (click)="poView()">
+                          <mat-icon>pageview</mat-icon>
+                        </button>
+                      </td>
+                  </ng-container>
+                    <ng-container matColumnDef="sel">
+                      <th mat-header-cell *matHeaderCellDef> Select </th>
+                      <td mat-cell *matCellDef="let element">{{element.sel}} 
+                        <mat-radio-button value="1"></mat-radio-button>
+                      </td>
+                    </ng-container>
+                
+                  <tr mat-header-row *matHeaderRowDef="displayedCanceled; sticky:true"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedCanceled;"></tr>
+                </table> 
+                <div>
+                    <div class="example-button-row">
+                        <button mat-stroked-button color="accent" (click)="Post()" disabled="true">Post</button>
+                        <button mat-stroked-button color="accent" (click)="Approve()" disabled="true">Approve</button>
+                        <button mat-stroked-button color="accent" (click)="Cancel()" disabled="true">Cancel</button>
+                        <button mat-stroked-button color="accent" (click)="Print()" disabled="true">Print</button>
+                        <button mat-stroked-button color="accent" (click)="Send()" disabled="true">Send</button>
+                    </div> 
+                </div>
+            </mat-card-content>
+          </mat-card>
+        </mat-tab>
+
+
+      </mat-tab-group>
+
+
+
